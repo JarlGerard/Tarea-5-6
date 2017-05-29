@@ -12,3 +12,18 @@ tripulante(perlaNegra, pirata(elizabethSwann, 66)).
 tripulante(holandesErrante,  criatura(davyJones,80)).
 tripulante(holandesErrante, soldado(jamesNorrington, marinaRealBritanica)).
 tripulante(holandesErrante, pirata(barbossa, 65)).
+
+esSoldado(soldado(_,_)).
+esPirata(pirata(_,_)).
+esCriatura(criatura(_,_)).
+
+tieneMasRon(pirata(_,ronPirata),pirata(_,ronOtroPirata)) :- ronPirata > ronOtroPirata.
+
+puedeRobar(Pirata, barco(_,Capitan)):-
+	esPirata(Pirata),
+	esSoldado(Capitan).
+puedeRobar(Pirata, barco(_,Capitan)) :-
+	esPirata(Pirata),
+	esPirata(Capitan),
+	Pirata\=Capitan,
+	tieneMasRon(Pirata,Capitan).
