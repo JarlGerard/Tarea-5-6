@@ -5,7 +5,6 @@
  
 barco(perlaNegra, pirata(jackSparrow, 1000)).
 barco(holandesErrante, criatura(davyJones,80)).
-barco(interceptor, soldado(jamesNorrington, marinaRealBritanica)).
  
 tripulante(perlaNegra, pirata(jackSparrow, 999999999)).
 tripulante(perlaNegra, pirata(willTurner, 88)).
@@ -18,7 +17,7 @@ esSoldado(soldado(_,_)).
 esPirata(pirata(_,_)).
 esCriatura(criatura(_,_)).
 
-tieneMasRon(pirata(_,RonPirata),pirata(_,RonOtroPirata)) :- RonPirata > RonOtroPirata.
+tieneMasRon(pirata(_,ronPirata),pirata(_,ronOtroPirata)) :- ronPirata > ronOtroPirata.
 
 puedeRobar(Pirata, barco(_,Capitan)):-
 	esPirata(Pirata),
