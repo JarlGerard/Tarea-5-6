@@ -4,7 +4,7 @@
 %criatura(nombre, cantidadDeAñosSinPisarTierra).
  
 barco(perlaNegra, pirata(jackSparrow, 1000)).
-barco(holandesErrante, criatura(davyJones,80)).
+barco(holandesErrante, pirata(davyJones,80)).
 barco(interceptor, soldado(jamesNorrington, marinaRealBritanica)).
  
 tripulante(perlaNegra, pirata(jackSparrow, 999999999)).
@@ -39,3 +39,7 @@ puedeRobar(Pirata,Barco):-
 	barco(Barco,Capitan),
 	esCriatura(Capitan),
 	not(esDavyJones(Capitan)).
+
+esBarcoDePiratas(Barco):-
+	barco(Barco,pirata(_,_)),
+	forall(tripulante(Barco,Pirata),esPirata(Pirata)).
